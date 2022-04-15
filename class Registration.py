@@ -31,17 +31,17 @@ class Registration:
     @password.setter
     def password(self, value):
         if not isinstance(value, str):
-            raise TypeError("Пароль должен быть строкой")
+            raise TypeError("Password must be a string")
         if not 4 < len(value) < 12:
-            raise ValueError('Пароль должен быть длиннее 4 и меньше 12 символов')
+            raise ValueError('Password must be longer than 4 and less than 12 characters')
         if not Registration.is_include_digit(value):
-            raise ValueError('Пароль должен содержать хотя бы одну цифру')
+            raise ValueError('Password must contain at least one number')
         if not Registration.is_include_all_register(value):
-            raise ValueError('Пароль должен содержать хотя бы 2 заглавные буквы')
+            raise ValueError('Password must contain at least 2 capital letters')
         if Registration.is_include_only_latin(value):
-            raise ValueError('Пароль должен содержать только латинский алфавит')
+            raise ValueError('The password must contain only the Latin alphabet')
         if Registration.check_password_dictionary(value):
-            raise ValueError('Ваш пароль содержится в списке самых легких')
+            raise ValueError('Your password is listed as the easiest')
         self.__password = value
 
     # check for at least one digit
