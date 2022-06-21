@@ -55,13 +55,9 @@ class Registration:
     # checking for at least two uppercase characters
     @staticmethod
     def is_include_all_register(n):
-        count = 0
-        for upp in ascii_uppercase:
-            if upp in n:
-                count += 1
-                if count == 2:
-                    return True
-        return False
+    if len([x for x in filter(lambda x: x in ascii_uppercase, n)]) > 1:
+        return True
+    return False
 
     # Checking for ownership of only Latin characters
     @staticmethod
